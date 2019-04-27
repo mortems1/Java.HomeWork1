@@ -13,7 +13,7 @@ public class learning {
         System.out.println(task10and20(10, 2));
         isPositiveOrNegative(5);
         System.out.println(isNegative(20));
-        greetings("Привет, указанное_имя!");
+        greetings("РџСЂРёРІРµС‚, СѓРєР°Р·Р°РЅРЅРѕРµ_РёРјСЏ!");
         year(2019);
 
 
@@ -47,8 +47,8 @@ public class learning {
     }
     public static void year(int a) {                       // Task 8
         if (!(a % 4 == 0) || ((a % 100 == 0) && !(a % 400 == 0)))
-            System.out.println(a + " не високосный");
-        else System.out.println(a + " високосный");
+            System.out.println(a + " РЅРµ РІРёСЃРѕРєРѕСЃРЅС‹Р№");
+        else System.out.println(a + " РІРёСЃРѕРєРѕСЃРЅС‹Р№");
     }
 
 }
