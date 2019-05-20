@@ -1,0 +1,75 @@
+// TASK 1
+
+package Lesson3;
+
+
+import java.util.Scanner;
+
+public class Numbers {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int range = 9;
+        int count = 0;
+        int number = (int) (Math.random() * range);
+        while (count < 3) {
+
+            System.out.println("У вас три попытки. Угадайте число от 0 до " + range);
+            int x = sc.nextInt();
+            if (x == number) {
+                System.out.println("Правильно!");
+                System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+                int b = sc.nextInt();
+                if (b == 1) {
+                    continue;
+                } else break;
+
+            } else if (x > number) {
+                System.out.println("Загаданное число меньше!");
+                count++;
+            } else {
+                System.out.println("Загаданное число больше!");
+                count++;
+            }
+        } if (count == 3) {
+            System.out.println("Попытки закончились! Вы проиграли!");
+            return;
+        }
+
+    }
+}
+
+// TASK 2
+
+package Lesson3;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Words {
+    static Random random = new Random();
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        String str;
+        String word = words[random.nextInt(words.length)];
+        System.out.println(Arrays.toString(words));
+        do {
+            System.out.print("Угадай слово: ");
+            str = sc.next();
+            for (int i = 0; i < 15; i++)
+                if (i < word.length() && i < str.length() && word.charAt(i) == str.charAt(i))
+                    System.out.print(word.charAt(i));
+                else
+                    System.out.print((word.equals(str)) ? "" : "#");
+            System.out.println();
+        } while (!word.equals(str));
+            System.out.println("Правильно!");
+
+}
+
+
+
+}
