@@ -1,5 +1,6 @@
 public class Main {
 public static void main(String[] args) {
+        
         System.out.println("Кошка бегает до 200 метров, не умеет плавать и прыгает до 2-ух метров в высоту!");
         Cat barsik = new Cat(200, 2, 2);
         barsik.run(100);
