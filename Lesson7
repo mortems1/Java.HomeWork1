@@ -1,0 +1,81 @@
+package Lesson7;
+
+public class Main {
+    public static void main(String[] args) {
+        Cat[] cats = {new Cat("Барсик", 30), new Cat("Вася", 50), new Cat("Гена", 35), new Cat("Тоша", 5), new Cat("Граф", 1)};
+        Plate plate = new Plate(100);
+        System.out.println(plate);
+        for (Cat cat : cats) {
+            cat.eat(plate);
+            cat.info();
+            plate.info();
+            plate.addFood(20);
+        }
+    }
+}
+
+public class Cat {
+    private String name;
+    private int appetite;
+    private boolean hungry;
+
+
+    public Cat(String name, int appetite) {
+        this.name = name;
+        this.appetite = appetite;
+        this.hungry = true;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void eat(Plate plate) {
+        if (hungry && plate.decreaseFood(appetite))
+            hungry = false;
+    }
+
+    public void info(){
+        String isHungry = !hungry? " сыт!" : " голоден :(";
+        System.out.println(name + isHungry);
+    }
+
+}
+
+public class Plate {
+    private int food;
+
+    public Plate(int food) {
+        this.food = food;
+    }
+
+    @Override
+    public String toString() {
+        return "Plate{" +
+                "food=" + food +
+                '}';
+    }
+
+    public int getFood() {
+        return food;
+    }
+
+    public void setFood(int food) {
+        this.food = food;
+    }
+
+    public boolean decreaseFood(int amount) {
+        int diff = food - amount;
+        if (diff < 0) return false;
+        food -= amount;
+        return true;
+    }
+
+    public void addFood(int food) {
+        this.food += food;
+    }
+
+    public void info(){
+        System.out.println("В тарелке " + food + " еды");
+    }
+}
