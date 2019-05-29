@@ -1,0 +1,57 @@
+public class Main {
+public static void main(String[] args) {
+        
+        System.out.println("Кошка бегает до 200 метров, не умеет плавать и прыгает до 2-ух метров в высоту!");
+        Cat barsik = new Cat(200, 2, 2);
+        barsik.run(100);
+        barsik.swimming();
+        barsik.jump(2);
+
+        System.out.println("Собака бегает до 500 метров, плавает до 10 метров и прыгает до полуметра в высоту!");
+        Animal tuzik = new Dog(500, 10, 0.5);
+        tuzik.run(550);
+        tuzik.swim(8);
+        tuzik.jump(0.3);
+        }
+
+public abstract class Animal {
+    private String name;
+    private int runMaxDistance;
+    private int swimMaxDistance;
+    private double jumpMaxDistance;
+
+    public Animal(int runMaxDistance, int swimMaxDistance, double jumpMaxDistance) {
+        this.runMaxDistance = runMaxDistance;
+        this.swimMaxDistance = swimMaxDistance;
+        this.jumpMaxDistance = jumpMaxDistance;
+    }
+
+
+    public void run(int runDistance) {
+        System.out.println("Бегает: " + (runDistance <= runMaxDistance));
+    }
+    public void swim(int swimDistance) {
+        System.out.println("Плавает: " + (swimDistance <= swimMaxDistance));
+    }
+    public void jump(double jumpHeight) {
+        System.out.println("Прыгает: " + (jumpHeight <= jumpMaxDistance));
+    }
+}
+
+class Cat extends Animal {
+    public Cat(int runDistance, int swimDistance, double jumpHeight) {
+        super(runDistance, swimDistance, jumpHeight);
+    }
+
+    public void swimming () {
+        System.out.println("Кошки не умеют плавать!");
+    }
+}
+
+class Dog extends Animal {
+
+    public Dog(int runDistance, int swimDistance, double jumpHeight) {
+        super(runDistance, swimDistance, jumpHeight);
+    }
+}
+}
